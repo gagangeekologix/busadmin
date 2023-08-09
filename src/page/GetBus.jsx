@@ -40,8 +40,8 @@ function GetBus() {
         <label>Select Bus:</label>
         <Select
           className='p-2 px-5 w-96 m-3 text-black rounded-md'
-          value={busId}
-          onChange={(selectedOption) => setBusId(selectedOption.value)}
+          value={busOptions.find(option => option.value === busId)} // Find the selected option object
+          onChange={(selectedOption) => setBusId(selectedOption.value)} // Set the selected option's value as busId
           options={busOptions}
         />
       </div>
@@ -50,9 +50,21 @@ function GetBus() {
         <div>
           <h3>Bus Details</h3>
           <p>Name: {busDetails.name}</p>
-          <p>Route: {busDetails.route.map(stop => stop.name).join(', ')}</p>
+          <p>Route: <div class="relative after:absolute me-10 mt-20 after:inset-x-0 after:top-1/2 after:block after:h-0.5 after:-translate-y-1/2 after:rounded-lg after:bg-gray-100">
+            <ol class="relative z-10 flex justify-between text-sm font-medium text-gray-500">
+              {busDetails.route.map((stop, index) => (
+                <li class="flex items-center gap-2 text-white rounded-md  bg-gray-500 p-2" key={index}>
+                  <span class="h-6 w-6 rounded-full text-black bg-gray-100 text-center text-[10px]/6 font-bold">
+                    {index + 1}
+                  </span>
+                  <span class="hidden sm:block">{stop.name}</span>
+                </li>
+              ))}
+            </ol>
+          </div></p>
         </div>
       )}
+
     </div>
   );
 }

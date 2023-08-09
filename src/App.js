@@ -24,13 +24,17 @@ function App() {
           <Route path="/create-bus" element={<CreateBus />} />
           <Route path="/get-bus" element={<GetBus />} />
           <Route path="/update-bus" element={<UpdateBus />} />
+          <Route path="/update-bus/:id" element={<UpdateBus />} />
           <Route path="/delete-bus" element={<DeleteBus />} />
+          <Route path="/delete-bus/:id" element={<DeleteBus />} />
           <Route path="/list-buses" element={<ListBuses />} />
           <Route path="/create-bus-stop" element={<CreateBusStop />} />
           <Route path="/bus-stop-list" element={<BusStopList />} />
           <Route path="/bus-stop-details" element={<BusStopDetails />} />
           <Route path="/update-bus-stop" element={<UpdateBusStop />} />
+          <Route path="/update-bus-stop/:id" element={<UpdateBusStop />} />
           <Route path="/delete-bus-stop" element={<DeleteBusStop />} />
+          <Route path="/delete-bus-stop/:id" element={<DeleteBusStop />} />
         </Routes>
       </Layout>
     </Router>
